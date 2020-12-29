@@ -16,6 +16,14 @@ body {
     pointer-events: none !important;
 }
 
+.block_abs{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #4facfe;
+}
+
+
 .block {
     position: relative;
     width: var(--width, 0);
@@ -183,6 +191,14 @@ body {
     place-items: center;
     gap: 1.5rem;
 }
+
+
+.target-blocks_2{
+    position: relative;
+    width: 800px;
+    height: 400px;
+}
+
 
 .game {
     display: grid;
