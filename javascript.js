@@ -16,13 +16,13 @@ const getOffset = (el) => {
 };
 const randomIntArrayInRange = (min, max, n = 1) => Array.from({length: n}, () => Math.floor(Math.random() * (max - min + 1)) + min);
 
-// 可投放的地方，也就是本例子中的target
+// Де його можна розмістити, що є ціллю в цьому прикладі
 class Droppable {
     constructor(el) {
         this.droppableEl = el;
     }
 
-    // 当拖拽元素与投放点相交，且相交距离小于投放点宽高的一半时则可以投放
+    // Його можна розмістити, коли елемент перетягування перетинає точку розміщення, а відстань перетину менше половини ширини та висоти точки розміщення
     isDroppable(draggableEl) {
         const draggableOffset = getOffset(draggableEl);
         const droppableOffset = getOffset(this.droppableEl);
@@ -45,7 +45,7 @@ class Droppable {
     }
 }
 
-// 拖拽物，也就是本例子中的draggable
+// Перетягується, що можна перетягнути в цьому прикладі
 class Draggable {
     constructor(el) {
         this.draggableEl = el;
@@ -75,37 +75,37 @@ const TIME = 30;
 const INTERVAL = 600;
 let timer;
 let timeLeft = TIME;
-// 允许拖拽
+// Дозволити перетягування
 const enableBlocks = () => {
     draggables.forEach((draggable) => {
         draggable.draggableEl.removeAttribute("disabled");
     });
 };
-// 禁止拖拽
+// Ніякого перетягування
 const disableBlocks = () => {
     draggables.forEach((draggable) => {
         draggable.draggableEl.setAttribute("disabled", "");
     });
 };
-// 将目标顺序打乱
+// Порушити порядок цілей
 const shuffleTargets = () => {
     const cardIndexes = Array.from(Array(targetBlocks.length).keys());
     const shufferedIndexs = shuffle(cardIndexes);
     targetBlocks.forEach((item, i) => item.style.setProperty("--order", shufferedIndexs[i]));
 };
-// 给目标设置随机的大小和形状（实际情况则是用不同的图片）
+// Цільовий набір випадкових розмірів і форм (фактична ситуація полягає в тому, що різні картинки)
 const setRandomSizes = (elements) => {
     elements.forEach((item, i) => {
         item.style.setProperty("--width", `${randomBlockWidths[i]}px`);
         item.style.setProperty("--border-radius", `${randomBlockBorderRadiuses[i]}px`);
     });
 };
-// 给拖拽物和投放点设置大小
+// Встановіть розмір точки перетягування
 const setRandomBlockSizes = () => {
     setRandomSizes(draggableBlocks);
     setRandomSizes(targetBlocks);
 };
-// 将拖拽物放回原处
+// Покладіть перетягнутий предмет назад
 const moveBack = (draggable) => {
     const draggableEl = draggable.draggableEl;
     draggableEl.classList.add("animated");
@@ -115,14 +115,14 @@ const moveBack = (draggable) => {
         draggableEl.classList.remove("animated");
     });
 };
-// 投放拖拽物
+// Drop drag(Перетягніть перетягування)
 const dropDown = (draggable, droppable) => {
     const draggableEl = draggable.draggableEl;
     draggableEl.setAttribute("transparent", "");
     const droppableEl = droppable.droppableEl;
     droppableEl.classList.add("dropped");
 };
-// 监听拖拽事件
+// Відстежуйте події перетягування
 const listenDragEvent = () => {
     draggables.forEach((draggable) => {
         const draggie = draggable.draggie;
@@ -143,7 +143,7 @@ const listenDragEvent = () => {
         });
     });
 };
-// 还原所有拖拽物和投放物
+// Відновіть усі перетягування та скинуті об'єкти
 const recoverBlocks = () => {
     draggables.forEach((draggable) => {
         moveBack(draggable);
@@ -156,7 +156,7 @@ const recoverBlocks = () => {
         droppableEl.classList.remove("dropped");
     });
 };
-// 清空所有数据
+// Очистити всі дані
 const cleanData = () => {
     recoverBlocks();
     shuffleTargets();
@@ -168,7 +168,7 @@ const cleanData = () => {
     youWin.setAttribute("hidden", "");
     youLose.setAttribute("hidden", "");
 };
-// 开始游戏
+// Почніть гру
 const startGame = () => {
     enableBlocks();
     timer = setInterval(() => {
@@ -180,21 +180,21 @@ const startGame = () => {
         }
     }, 1000);
 };
-// 结束游戏
+// Кінець гри
 const endGame = () => {
     disableBlocks();
     showFinalScore();
     startBtn.removeAttribute("transparent");
     startBtn.removeAttribute("disabled");
 };
-// 如果满足要求的分数（所有投放都已完成），则赢得游戏
+// Якщо необхідний рахунок досягнуто (всі місця розміщення завершені), гра виграна
 const winGameJudge = () => {
     if (score === WINSCORE) {
         win = true;
         endGame();
     }
 };
-// 展示最终得分弹窗
+// Показати спливаюче підсумковий бал
 const showFinalScore = () => {
     clearInterval(timer);
     if (win) {
@@ -205,7 +205,7 @@ const showFinalScore = () => {
     finalScore.textContent = `${score}`;
     finalScoreDialog.removeAttribute("hidden");
 };
-// 关闭最终得分弹窗
+// Закрийте спливаюче вікно остаточного балу
 const closeFinalScore = () => {
     finalScoreDialog.setAttribute("hidden", "");
     cleanData();
