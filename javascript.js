@@ -22,7 +22,8 @@ class Droppable {
         this.droppableEl = el;
     }
 
-    // Його можна розмістити, коли елемент перетягування перетинає точку розміщення, а відстань перетину менше половини ширини та висоти точки розміщення
+    // Його можна розмістити, коли елемент перетягування перетинає точку розміщення,
+    // а відстань перетину менше половини ширини та висоти точки розміщення
     isDroppable(draggableEl) {
         const draggableOffset = getOffset(draggableEl);
         const droppableOffset = getOffset(this.droppableEl);
@@ -34,14 +35,11 @@ class Droppable {
             this.droppableEl.offsetWidth,
             this.droppableEl.offsetHeight
         ];
-        return !(droppableOffset.left >
-            draggableOffset.left + draggableWidth - draggableWidth / 2 ||
-            droppableOffset.left + droppableWidth <
-            draggableOffset.left + draggableWidth / 2 ||
-            droppableOffset.top >
-            draggableOffset.top + draggableHeight - draggableHeight / 2 ||
-            droppableOffset.top + droppableHeight <
-            draggableOffset.top + draggableHeight / 2);
+        return !(
+               droppableOffset.left > draggableOffset.left + draggableWidth - draggableWidth / 2
+            || droppableOffset.left + droppableWidth < draggableOffset.left + draggableWidth / 2
+            || droppableOffset.top > draggableOffset.top + draggableHeight - draggableHeight / 2
+            || droppableOffset.top + droppableHeight < draggableOffset.top + draggableHeight / 2);
     }
 }
 
@@ -124,14 +122,17 @@ const dropDown = (draggable, droppable) => {
 };
 // Відстежуйте події перетягування
 const listenDragEvent = () => {
+    // [drag1, drag2, drag3, ...]
     draggables.forEach((draggable) => {
         const draggie = draggable.draggie;
         draggie.on("dragEnd", function () {
             const draggableElement = this.element;
+            console.log(this.element)
             // Знайдіть відповідний цільовий елемент нашого елемента перетягування
             const dragId = parseInt(draggableElement.dataset.id);
             const correspondingDroppable = droppables[dragId - 1];
-            // Якщо його можна поставити, поставте його та додайте точки, інакше поверніть перетягнутий об'єкт на початкове місце
+            // Якщо його можна поставити, поставте його та додайте точки,
+            // інакше поверніть перетягнутий об'єкт на початкове місце
             if (correspondingDroppable.isDroppable(draggableElement)) {
                 dropDown(draggable, correspondingDroppable);
                 score += SCOREINC;
