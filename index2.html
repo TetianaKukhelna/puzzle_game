@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main2.css">
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphardex/aqua.css/dist/aqua.min.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div class="statistics">
+    <div class="score">
+        Score：<span class="score-number">0</span>
+    </div>
+    <div class="time-left">
+        Time：<span class="time-left-number">0</span>
+    </div>
+</div>
+<div class="game">
+    <div class="target-blocks">
+        <div class="block target" data-id="1"></div>
+        <div class="block target" data-id="2"></div>
+        <div class="block target" data-id="3"></div>
+        <div class="block target" data-id="4"></div>
+        <div class="block target" data-id="5"></div>
+        <div class="block target" data-id="6"></div>
+        <div class="block target" data-id="7"></div>
+        <div class="block target" data-id="8"></div>
+        <div class="block target" data-id="9"></div>
+        <div class="block target" data-id="10"></div>
+    </div>
+    <div class="draggable-blocks">
+        <div class="block draggable" data-id="1"></div>
+        <div class="block draggable" data-id="2"></div>
+        <div class="block draggable" data-id="3"></div>
+        <div class="block draggable" data-id="4"></div>
+        <div class="block draggable" data-id="5"></div>
+        <div class="block draggable" data-id="6"></div>
+        <div class="block draggable" data-id="7"></div>
+        <div class="block draggable" data-id="8"></div>
+        <div class="block draggable" data-id="9"></div>
+        <div class="block draggable" data-id="10"></div>
+    </div>
+</div>
+<button class="btn btn-primary" id="start">Start</button>
+<div class="dialog text-center" id="final-score-dialog" hidden>
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <div class="dialog-title">You Scored <span class="final-score">0</span></div>
+        </div>
+        <div class="dialog-body">
+            <p><span class="you-win" hidden>Congratulations! You win!🎉</span></p>
+            <p><span class="you-lose" hidden>You lose! Have another try?😂</span></p>
+        </div>
+        <div class="dialog-footer">
+            <button class="btn btn-primary" onclick="closeFinalScore()">
+                OK
+            </button>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
+<script src="javascript.js"></script>
+</body>
+
+</html>

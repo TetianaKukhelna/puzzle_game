@@ -1,0 +1,239 @@
+:root {
+
+}
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 50px;
+    background-color: #015e29;
+    color: #31b596;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+}
+
+/**************************************************************************************/
+/**************************************************************************************/
+.photo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    /*grid-template-rows: repeat(auto-fill, 300px) ;*/
+    grid-auto-rows: 400px;
+    column-gap: 15px;
+    row-gap: 15px;
+    list-style-type: none;
+    /*height: fit-content;*/
+    padding: 0;
+    justify-content: center;
+}
+
+.photo-container-item {
+    background-color: #0f6674;
+    /*background: url(photo/photo1.jpg) no-repeat center center*/
+    /*background: attr(data-url) no-repeat center center;*/
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.photo-container-item img {
+    width: 100%;
+    height: 100%;
+}
+
+/******************************************/
+/******************************************/
+@media (max-width: 1200px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-auto-rows: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fill, 400px);
+        grid-auto-rows: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fill, 400px);
+        grid-auto-rows: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fill, 450px);
+        grid-auto-rows: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-container {
+        grid-template-columns: repeat(auto-fill, 400px);
+        grid-auto-rows: 400px;
+    }
+}
+
+/****************************************/
+.img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    padding: 4px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+footer {
+    background-color: #000000;
+    color: #bababa;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 50%;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    min-height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+
+}
+
+footer a {
+    text-decoration: none;
+    color: #bababa;
+    text-align: center;
+}
+
+/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+   = = = = = = = = = = = = = = = =  D R A G  &  D R O P  = = = = = = = = = = = = = = =
+   = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+*/
+
+body.dragging, body.dragging * {
+    cursor: move !important;
+}
+
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
+
+ul.photo-container .placeholder:before {
+    position: absolute;
+}
+
+ul.photo-container .placeholder {
+    vertical-align: middle;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border: 2px dashed #000;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.CollidableWall {
+    position: absolute;
+    background-color: black;
+    transition: background-color 0.5s ease;
+    transition: background-color ;
+}
+
+.draggable-mirror > .BlockContent {
+      transform: scale(0.9);
+}
+
+
+
+.draggable{
+  position: absolute;
+  z-index: 100
+}
+.draggable-handler{
+  cursor: pointer
+}
+
+
+/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+   = = = = = = = = = = = = = = = =  H e l p e r s  = = = = = = = = = = = = = = = = = =
+   = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+*/
+.cantered-horizontal {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-inline {
+    display: inline-flex;
+}
+
+.align {
+    align-self: center;
+    margin: 10px !important;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-250p {
+    width: 250px;
+}
+
+.blockTitle {
+    font-size: 24px;
+    margin: 20px 0 5px 0;
+    font-weight: bold;
+}
+
+.pt-15 {
+    padding-top: 15px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mh-30 {
+    margin: 0 30px 0 30px;
+}
+
+.vh-100 {
+    height: 100vh;
+}
+
+.pad {
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <link rel="stylesheet" href="static/slick.css">
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hra</title>
+</head>
+<body>
+<header>
+    <h1>Puzzle</h1>
+</header>
+<div id="timer">
+    <h1 id="timePassed">00:00:00</h1>
+    <button type="button" name="Demo" onclick="showDemo()">Demo</button>
+    <button id="cas" type="button" name="Start" onclick="startTimer()">Start</button>
+</div>
+
+<section id="Collidable" class="Obstacle Collidable">
+    <article class="BlockLayout BlockLayout--typePositioned">
+        <!--    <div id="data"></div>-->
+        <div class="photo-container" draggable="true">
+            <div swapitem id="one" class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/gloria_mini.png) no-repeat center center;cursor:move"
+                 data-url="photo/gloria_mini.png" data-dropzone="1">
+                <!--                {{ Block.render('one', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('one', {index: 1}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/alex_mini.png) no-repeat center center"
+                 data-url="photo/alex_mini.png" data-dropzone="2">
+                <!--                {{ Block.render('two', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('two', {index: 2}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/marti_mini.png) no-repeat center center"
+                 data-url="photo/marti_mini.png" data-dropzone="3">
+                <!--                {{ Block.render('three', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('three', {index: 3}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/melman_mini.png) no-repeat center center"
+                 data-url="photo/melman_mini.png" data-dropzone="4">
+                <!--                {{ Block.render('four', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('four', {index: 4}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/pusystik_mini.png) no-repeat center center"
+                 data-url="photo/pusystik_mini.png" data-dropzone="5">
+                <!--                {{ Block.render('five', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('five', {index: 5}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/kral_mini.png) no-repeat center center"
+                 data-url="photo/kral_mini.png" data-dropzone="6">
+                <!--                {{ Block.render('six', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('six', {index: 6}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/moris_mini.png) no-repeat center center"
+                 data-url="photo/moris_mini.png" data-dropzone="7">
+                <!--                {{ Block.render('seven', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('seven', {index: 7}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/monkey1_mini.png) no-repeat center center"
+                 data-url="photo/monkey1_mini.png" data-dropzone="8">
+                <!--                {{ Block.render('eight', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('eight', {index: 8}) }}-->
+            </div>
+
+            <div swapitem class="draggable-handler photo-container-item Block Block--item1 Block--isDraggable"
+                 style="background: url(photo/monkey2_mini.png) no-repeat center center"
+                 data-url="photo/monkey2_mini.png" data-dropzone="9">
+                <!--                {{ Block.render('nine', {type: 'Hollow'}) }}-->
+                <!--                {{ Block.render('nine', {index: 9}) }}-->
+            </div>
+
+        </div>
+
+        <div class="photo-container">
+
+            <div
+                 class="BlockWrapper BlockWrapper--isDropzone Block--typeStripes" data-dropzone="1"
+                 style="background: url(photo/gloria_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+<!--                ondrop="drop(event)" ondragover="allowDrop(event)"-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="2"
+                 style="background: url(photo/alex_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="3"
+                 style="background: url(photo/marti_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="4"
+                 style="background: url(photo/melman_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="5"
+                 style="background: url(photo/pusystik_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="6"
+                 style="background: url(photo/kral_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="7"
+                 style="background: url(photo/moris_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="8"
+                 style="background: url(photo/monkey1_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+            <div class="BlockWrapper BlockWrapper--isDropzone " data-dropzone="9"
+                 style="background: url(photo/monkey2_siluet_1.png) no-repeat center center">
+                <!--            data-url="photo/photo1.jpg">-->
+                <!--                {{ Block.render('', {type: 'Stripes'}) }}-->
+            </div>
+
+        </div>
+    </article>
+</section>
+
+
+<footer class="footer">
+    <a href="https://www.facebook.com/tetiana.kukhelna">Power by Tetiana </a>
+</footer>
+
+<script src="static/jQuery351.js"></script>
+<script src="static/jquery-sortable.js"></script>
+<script src="static/bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/draggable.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/draggable.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/droppable.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/plugins.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/plugins/collidable.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.2/lib/draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/sortable.js"></script>
+</body>
+
+<script>
+
+    const swappable = new Draggable.Swappable(
+        document.querySelectorAll('div > .Block'), {
+            draggable: '[swapItem]',
+            delay: 0,
+        }
+    )
+
+    // function reload() {
+    //     var done = document.querySelectorAll('.done')
+    //     done.forEach(function (e) {
+    //         e.classList.toggle('done')
+    //     })
+    //     var dropped = document.querySelectorAll('.dropped')
+    //     dropped.forEach(function (e) {
+    //         e.classList.toggle('dropped')
+    //     })
+    //     var allDone = document.querySelector('.allDone')
+    //     allDone.style = ''
+    //     allDone.classList.toggle('allDone')
+    // }
+    //
+    // function allowDrop(ev) {
+    //     ev.preventDefault();
+    // }
+    //
+    // function drag(ev) {
+    //     ev.dataTransfer.setData("text", ev.target.className);
+    // }
+    //
+    // function drop(ev) {
+    //     ev.preventDefault();
+    //     var data = ev.dataTransfer.getData("text")
+    //
+    //     if (ev.target.className == data) {
+    //         ev.target.classList.add('dropped')
+    //         document.querySelector('.' + data + "[draggable='true']").classList.add('done')
+    //
+    //         if (document.querySelectorAll('.dropped').length == 9) {
+    //             document.querySelector('#puz').classList.add('allDone')
+    //             document.querySelector('#puz').style.border = 'none'
+    //             document.querySelector('#puz').style.animation = 'allDone 1s linear forwards'
+    //
+    //             setTimeout(function () {
+    //                 reload()
+    //                 randomize()
+    //             }, 1500)
+    //         }
+    //     }
+    // }
+
+    // const droppable = new Draggable.Droppable(
+    //     document.querySelectorAll('div > .BlockWrapper'), {
+    //         dropzone: '[swapItem]',
+    //         delay: 0,
+    //     }
+    // )
+
+    // $('.draggable-handler').mousedown(function (e) {
+    //     drag = $(this).closest('.draggable')
+    //     drag.addClass('dragging')
+    //     drag.css('left', e.clientX - $(this).width() / 2)
+    //     drag.css('top', e.clientY - $(this).height() / 2 - 10)
+    //     $(this).on('mousemove', function (e) {
+    //         drag.css('left', e.clientX - $(this).width() / 2)
+    //         drag.css('top', e.clientY - $(this).height() / 2 - 10)
+    //         window.getSelection().removeAllRanges()
+    //     })
+    // })
+    //
+    // $('.draggable-handler').mouseleave(stopDragging)
+    // $('.draggable-handler').mouseup(stopDragging)
+
+    // function stopDragging() {
+    //     drag = $(this).closest('.draggable')
+    //     drag.removeClass('dragging')
+    //     $(this).off('mousemove')
+    // }
+
+    // $(document).ready(function () {
+    //     const containerSelector = '#Collidable .BlockLayout';
+    //     const containers = document.querySelectorAll(containerSelector);
+    //     const wallClass = 'Obstacle';
+    //     const walls = document.querySelectorAll(`.${wallClass}`);
+    //
+    //     const container = document.querySelectorAll('#UniqueDropzone .BlockLayout');
+    //     if (containers.length === 0) {
+    //         return false;
+    //     }
+    //
+    //     const droppable = new Droppable(container, {
+    //         draggable: '.Block--isDraggable',
+    //         dropzone: '.BlockWrapper--isDropzone',
+    //         collidables: '.Obstacle',
+    //         mirror: {
+    //             // appendTo: containerSelector,
+    //             constrainDimensions: true,
+    //         },
+    //         // plugins: [Plugins.Collidable],
+    //     });
+    //
+    //     let droppableOrigin;
+    //     // --- Draggable events --- //
+    //     droppable.on('drag:start', (evt) => {
+    //         droppableOrigin = evt.originalSource.parentNode.dataset.dropzone;
+    //     });
+    //
+    //     droppable.on('droppable:dropped', (evt) => {
+    //         if (droppableOrigin !== evt.dropzone.dataset.dropzone) {
+    //             evt.cancel();
+    //         }
+    //     });
+    //
+    //     return droppable;
+    // });
+
+
+    var timer = null;
+    var timePassed = 0;
+
+    function startTimer() {
+        //Check if timer is already running
+        if (timer != null) return;
+
+        //Start timer
+        timer = setInterval(function () {
+            //Create date object
+            let date = new Date(null);
+            //Push our timestamp
+            date.setSeconds(timePassed);
+
+            //Convert timestamp to string and cut year month and date from it since we dont need them
+            let time = date.toISOString().substr(11, 8);
+            //Update our timer with time passed
+            document.getElementById("timePassed").innerHTML = time;
+            //Increment time passed in seconds
+            timePassed++;
+        }, 1000);
+    }
+
+
+    // $(".carNav").click(function (e) {
+    //     $('.carousel').slick(e.currentTarget.dataset.action);
+    // })
+
+    // $(document).ready(function () {
+    //
+    //     var adjustment
+    //
+    //     var group = $("ul.photo-container").sortable({
+    //         group: 'photo-container',
+    //         itemSelector: 'li.photo-container-item',
+    //         containerSelector: 'ul',
+    //         vertical: false,
+    //         placeholder: '<div class="placeholder" />',
+    //         pullPlaceholder: false,
+    //
+    //         // set item relative to cursor position
+    //         onDragStart: function ($item, container, _super) {
+    //             var offset = $item.offset(),
+    //                 pointer = container.rootGroup.pointer
+    //
+    //             adjustment = {
+    //                 left: pointer.left - offset.left,
+    //                 top: pointer.top - offset.top
+    //             }
+    //
+    //             _super($item, container)
+    //         },
+    //         onDrop: function ($item, $container, _super) {
+    //             pos_string = group.sortable("serialize").get()[0]
+    //             setCookie("PHOTO_POSITIONS", pos_string)
+    //             $('#output').text(group.sortable("serialize").get().join("\n"))
+    //             _super($item, $container)
+    //             $item[0].style.backgroundImage = `url(${$item[0].dataset.url})`
+    //         },
+    //         onDrag: function ($item, position) {
+    //             $item.css({
+    //                 width: 300,
+    //                 height: 300,
+    //                 left: position.left - adjustment.left,
+    //                 top: position.top - adjustment.top
+    //             })
+    //         },
+    //         serialize: function (parent, children, isContainer) {
+    //             return isContainer ? children.join() : parent.attr('rel')
+    //         }
+    //
+    //     })
+    // });
+
+
+    // function getElementIndex(element) {
+    //     return [...element.parentNode.children].indexOf(element);
+    // }
+
+    <img src="photo/monkey2_mini.png" height="148" width="212"/></script>
+</html>
