@@ -81,7 +81,7 @@ const enableBlocks = () => {
         draggable.draggableEl.removeAttribute("disabled");
     });
 };
-// Ніякого перетягування
+// Ніякого перетягування// когда ты уже перетащил и забирать элемент обратно нельзя
 const disableBlocks = () => {
     draggables.forEach((draggable) => {
         draggable.draggableEl.setAttribute("disabled", "");
@@ -128,10 +128,10 @@ const listenDragEvent = () => {
         const draggie = draggable.draggie;
         draggie.on("dragEnd", function () {
             const draggableElement = this.element;
-            // 找出我们拖拽元素的对应的目标元素
+            // Знайдіть відповідний цільовий елемент нашого елемента перетягування
             const dragId = parseInt(draggableElement.dataset.id);
             const correspondingDroppable = droppables[dragId - 1];
-            // 如果能投放，则投放并加分，否则将拖拽物返回原处
+            // Якщо його можна поставити, поставте його та додайте точки, інакше поверніть перетягнутий об'єкт на початкове місце
             if (correspondingDroppable.isDroppable(draggableElement)) {
                 dropDown(draggable, correspondingDroppable);
                 score += SCOREINC;
