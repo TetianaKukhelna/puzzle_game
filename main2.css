@@ -24,10 +24,11 @@ body {
 }
 
 
+
 .block {
     position: relative;
-    width: var(--width, 0);
-    height: var(--width, 0);
+    /*width: var(--width, 0);*/
+    /*height: var(--width, 0);*/
     background: var(--block-bg);
     border-radius: var(--border-radius, 0);
 }
@@ -142,43 +143,43 @@ body {
 }
 
 .block.draggable:nth-child(1) {
-    --block-bg: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    --block-bg: linear-gradient(120deg);
 }
 
 .block.draggable:nth-child(2) {
-    --block-bg: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    --block-bg: linear-gradient(120deg);
 }
 
 .block.draggable:nth-child(3) {
-    --block-bg: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    --block-bg: linear-gradient(to right);
 }
 
 .block.draggable:nth-child(4) {
-    --block-bg: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.draggable:nth-child(5) {
-    --block-bg: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.draggable:nth-child(6) {
-    --block-bg: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.draggable:nth-child(7) {
-    --block-bg: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.draggable:nth-child(8) {
-    --block-bg: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    --block-bg: linear-gradient(to right);
 }
 
 .block.draggable:nth-child(9) {
-    --block-bg: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.draggable:nth-child(10) {
-    --block-bg: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+    --block-bg: linear-gradient(to top);
 }
 
 .block.animated {
@@ -187,18 +188,18 @@ body {
 
 .draggable-blocks,
 .target-blocks {
-    display: grid;
+    display: flex;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 1fr);
     place-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 
 .target-blocks_2{
     position: relative;
     width: 800px;
-    height: 400px;
+    height: 500px;
 }
 
 

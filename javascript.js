@@ -36,7 +36,7 @@ class Droppable {
             this.droppableEl.offsetHeight
         ];
         return !(
-               droppableOffset.left > draggableOffset.left + draggableWidth - draggableWidth / 2
+            droppableOffset.left > draggableOffset.left + draggableWidth - draggableWidth / 2
             || droppableOffset.left + droppableWidth < draggableOffset.left + draggableWidth / 2
             || droppableOffset.top > draggableOffset.top + draggableHeight - draggableHeight / 2
             || droppableOffset.top + droppableHeight < draggableOffset.top + draggableHeight / 2);
@@ -52,8 +52,6 @@ class Draggable {
     }
 }
 
-// const randomBlockWidths = randomIntArrayInRange(30, 60, 10);
-// const randomBlockBorderRadiuses = randomIntArrayInRange(1, 30, 10);
 let draggableBlocks = document.querySelectorAll(".block.draggable");
 let targetBlocks = document.querySelectorAll(".block_abs.target");
 let startBtn = document.querySelector("#start");
@@ -72,7 +70,7 @@ let score = 0;
 let win = false;
 const SCOREINC = 10;
 const WINSCORE = SCOREINC * targetBlocks.length;
-const TIME = 6000;
+const TIME = 600;
 const INTERVAL = 600;
 let timer;
 let timeLeft = TIME;
@@ -194,8 +192,8 @@ const startGame = () => {
 const endGame = () => {
     disableBlocks();
     showFinalScore();
-    startBtn.removeAttribute("transparent");
-    startBtn.removeAttribute("disabled");
+    // startBtn.removeAttribute("transparent");
+    // startBtn.removeAttribute("disabled");
 };
 // Якщо необхідний рахунок досягнуто (всі місця розміщення завершені), гра виграна
 const winGameJudge = () => {
@@ -222,21 +220,42 @@ const closeFinalScore = () => {
 };
 const listenGameStart = () => {
     startBtn.addEventListener("click", () => {
-        startBtn.setAttribute("transparent", "");
-        startBtn.setAttribute("disabled", "");
+        // startBtn.setAttribute("transparent", "");
+        // startBtn.setAttribute("disabled", "");
         startGame();
     });
 };
-const True = true;
+
+
+const listenDemo = () => {
 
     demoBtn.addEventListener("click", () => {
-        if(True){
-            draggableBlocks.setAttribute("hidden");
-            targetBlocks.setAttribute("hidden");
-            DemoPic.removeAttribute("hidden");
-            deMo.removeAttribute("hidden");
-        }
+        draggables.forEach((draggable) => {
+            const draggableEl = draggable.draggableEl;
+            draggableEl.setAttribute("transparent", "");
+        });
+        droppables.forEach((droppable) => {
+            const droppableEl = droppable.droppableEl;
+            droppableEl.setAttribute("transparent", "");
+        });
+        DemoPic.removeAttribute("hidden");
+        deMo.removeAttribute("hidden");
+        startBtn.addEventListener("click", () => {
+            draggables.forEach((draggable) => {
+                const draggableEl = draggable.draggableEl;
+                draggableEl.removeAttribute("transparent", "");
+            });
+            droppables.forEach((droppable) => {
+                const droppableEl = droppable.droppableEl;
+                droppableEl.removeAttribute("transparent", "");
+            });
+            DemoPic.setAttribute("hidden","");
+            deMo.setAttribute("hidden","");
+            startGame();
+        });
     });
+};
+
 
 const main = () => {
     // setRandomBlockSizes();
@@ -244,5 +263,6 @@ const main = () => {
     cleanData();
     listenDragEvent();
     listenGameStart();
+    listenDemo();
 };
 main();
