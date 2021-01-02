@@ -14,7 +14,7 @@ const getOffset = (el) => {
         left: offset.left - window.scrollX
     };
 };
-const randomIntArrayInRange = (min, max, n = 1) => Array.from({length: n}, () => Math.floor(Math.random() * (max - min + 1)) + min);
+// const randomIntArrayInRange = (min, max, n = 1) => Array.from({length: n}, () => Math.floor(Math.random() * (max - min + 1)) + min);
 
 // Де його можна розмістити, що є ціллю в цьому прикладі
 class Droppable {
@@ -52,15 +52,15 @@ class Draggable {
     }
 }
 
-const randomBlockWidths = randomIntArrayInRange(30, 60, 10);
-const randomBlockBorderRadiuses = randomIntArrayInRange(1, 30, 10);
+// const randomBlockWidths = randomIntArrayInRange(30, 60, 10);
+// const randomBlockBorderRadiuses = randomIntArrayInRange(1, 30, 10);
 let draggableBlocks = document.querySelectorAll(".block.draggable");
 let targetBlocks = document.querySelectorAll(".block.target");
 let startBtn = document.querySelector("#start");
 const scoreNumber = document.querySelector(".score-number");
 const timeLeftNumber = document.querySelector(".time-left-number");
 const finalScoreDialog = document.querySelector("#final-score-dialog");
-const finalScore = document.querySelector(".final-score");
+// const finalScore = document.querySelector(".final-score");
 const youWin = document.querySelector(".you-win");
 const youLose = document.querySelector(".you-lose");
 let draggables = Array.from(draggableBlocks).map((block) => new Draggable(block));
@@ -69,7 +69,7 @@ let score = 0;
 let win = false;
 const SCOREINC = 10;
 const WINSCORE = SCOREINC * targetBlocks.length;
-const TIME = 30;
+const TIME = 60;
 const INTERVAL = 600;
 let timer;
 let timeLeft = TIME;
@@ -86,23 +86,25 @@ const disableBlocks = () => {
     });
 };
 // Порушити порядок цілей
-const shuffleTargets = () => {
-    const cardIndexes = Array.from(Array(targetBlocks.length).keys());
-    const shufferedIndexs = shuffle(cardIndexes);
-    targetBlocks.forEach((item, i) => item.style.setProperty("--order", shufferedIndexs[i]));
-};
+// const shuffleTargets = () => {
+//     const cardIndexes = Array.from(Array(targetBlocks.length).keys());
+//     const shufferedIndexs = shuffle(cardIndexes);
+//     targetBlocks.forEach((item, i) => item.style.setProperty("--order", shufferedIndexs[i]));
+// };
 // Цільовий набір випадкових розмірів і форм (фактична ситуація полягає в тому, що різні картинки)
-const setRandomSizes = (elements) => {
-    elements.forEach((item, i) => {
-        item.style.setProperty("--width", `${randomBlockWidths[i]}px`);
-        item.style.setProperty("--border-radius", `${randomBlockBorderRadiuses[i]}px`);
-    });
-};
+// const setRandomSizes = (elements) => {
+//     item.style.setProperty("--width");
+//     item.style.setProperty("--border-radius");
+//     // elements.forEach((item, i) => {
+//     //     item.style.setProperty("--width", `${randomBlockWidths[i]}px`);
+//     //     item.style.setProperty("--border-radius", `${randomBlockBorderRadiuses[i]}px`);
+//     // });
+// };
 // Встановіть розмір точки перетягування
-const setRandomBlockSizes = () => {
-    setRandomSizes(draggableBlocks);
-    setRandomSizes(targetBlocks);
-};
+// const setRandomBlockSizes = () => {
+//     setRandomSizes(draggableBlocks);
+//     setRandomSizes(targetBlocks);
+// };
 // Покладіть перетягнутий предмет назад
 const moveBack = (draggable) => {
     const draggableEl = draggable.draggableEl;
@@ -160,11 +162,11 @@ const recoverBlocks = () => {
 // Очистити всі дані
 const cleanData = () => {
     recoverBlocks();
-    shuffleTargets();
+    // shuffleTargets();
     score = 0;
     timeLeft = TIME;
     win = false;
-    scoreNumber.textContent = `${score}`;
+    // scoreNumber.textContent = `${score}`;
     timeLeftNumber.textContent = `${timeLeft}`;
     youWin.setAttribute("hidden", "");
     youLose.setAttribute("hidden", "");
@@ -203,7 +205,7 @@ const showFinalScore = () => {
     } else {
         youLose.removeAttribute("hidden");
     }
-    finalScore.textContent = `${score}`;
+    // finalScore.textContent = `${score}`;
     finalScoreDialog.removeAttribute("hidden");
 };
 // Закрийте спливаюче вікно остаточного балу
@@ -219,7 +221,7 @@ const listenGameStart = () => {
     });
 };
 const main = () => {
-    setRandomBlockSizes();
+    // setRandomBlockSizes();
     disableBlocks();
     cleanData();
     listenDragEvent();

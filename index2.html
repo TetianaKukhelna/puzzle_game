@@ -13,48 +13,42 @@
 <body>
 
 <div class="statistics">
-    <div class="score">
-        Score：<span class="score-number">0</span>
-    </div>
     <div class="time-left">
         Time：<span class="time-left-number">0</span>
     </div>
 </div>
 <div class="game">
     <div class="target-blocks_2">
-        <div class="block_abs target" data-id="1" style="top: 100px; left: 100px;"></div>
-        <div class="block_abs target" data-id="2" style="top: 100px; left: 200px;"></div>
-        <div class="block_abs target" data-id="3" style="top: 100px; left: 300px;"></div>
-        <div class="block_abs target" data-id="4" style="top: 200px; left: 100px;"></div>
-        <div class="block_abs target" data-id="5" style="top: 200px; left: 200px;"></div>
-        <div class="block_abs target" data-id="6" style="top: 200px; left: 300px;"></div>
-        <div class="block_abs target" data-id="7" style="top: 300px; left: 100px;"></div>
-        <div class="block_abs target" data-id="8" style="top: 300px; left: 200px;"></div>
-        <div class="block_abs target" data-id="9" style="top: 300px; left: 300px;"></div>
-        <div class="block_abs target" data-id="10" style="top: 100px; left: 400px;"></div>
+        <div class="block_abs target" data-id="1" style="top: -24px; left: 346px;"><img src="photo_new_project/chub_verch_siluet.png"></div>
+        <div class="block_abs target" data-id="2" style="top: 195px; left: 390px;"><img src="photo_new_project/brovi_siluet.png"></div>
+        <div class="block_abs target" data-id="3" style="top: 231px; left: 373px;"><img src="photo_new_project/oci_siluett.png"></div>
+        <div class="block_abs target" data-id="4" style="top: 331px; left: 417px;"><img src="photo_new_project/kluv_siluet.png"></div>
+        <div class="block_abs target" data-id="5" style="top: 220px; left: 270px;"><img src="photo_new_project/chvost_siluet.png"></div>
+        <div class="block_abs target" data-id="6" style="top: 383px; left: 314.49px;"><img src="photo_new_project/krylo_lave_siluet.png"></div>
+        <div class="block_abs target" data-id="7" style="top: 402px; left: 477px;"><img src="photo_new_project/krylo_prave_siluet.png"></div>
+        <div class="block_abs target" data-id="8" style="top: 415px; left: 390px;"><img src="photo_new_project/lapa_lava_siluet.png"></div>
+        <div class="block_abs target" data-id="9" style="top: 415px; left: 440px;"><img src="photo_new_project/lapa_prava_siluet.png"></div>
+        <div class="block_abs target" data-id="10" style="top: 100px; left: 300px;"><img src="photo_new_project/telo_siluet.png"></div>
     </div>
     <div class="draggable-blocks">
-        <div class="block draggable" data-id="1"></div>
-        <div class="block draggable" data-id="2"></div>
-        <div class="block draggable" data-id="3"></div>
-        <div class="block draggable" data-id="4"></div>
-        <div class="block draggable" data-id="5"></div>
-        <div class="block draggable" data-id="6"></div>
-        <div class="block draggable" data-id="7"></div>
-        <div class="block draggable" data-id="8"></div>
-        <div class="block draggable" data-id="9"></div>
-        <div class="block draggable" data-id="10"></div>
+        <div class="block draggable" data-id="1" style="top: -200px; left: -70px;"><img src="photo_new_project/chub_verch.png"></div>
+        <div class="block draggable" data-id="2" style="top: -400px; left: -210px;"><img src="photo_new_project/brovi.png"></div>
+        <div class="block draggable" data-id="3" style="top: -320px; left: -400px;"><img src="photo_new_project/oci.png"></div>
+        <div class="block draggable" data-id="4" style="top: -410px; left: 220px;"><img src="photo_new_project/kluv.png"></div>
+        <div class="block draggable" data-id="5" style="top: -350px; left: 40px;"><img src="photo_new_project/chvost.png"></div>
+        <div class="block draggable" data-id="6" style="top: -370px; left: 620px;"><img src="photo_new_project/krylo_lave.png"></div>
+        <div class="block draggable" data-id="7" style="top: -50px; left: -220px;"><img src="photo_new_project/krylo_prave.png"></div>
+        <div class="block draggable" data-id="8" style="top: -450px; left: 300px;"><img src="photo_new_project/lapa_lava.png"></div>
+        <div class="block draggable" data-id="9" style="top: -50px; left: -500px;"><img src="photo_new_project/lapa_prava.png"></div>
+        <div class="block draggable" data-id="10" style="top: -280px; left: -90px;"><img src="photo_new_project/telo.png"></div>
     </div>
 </div>
-<button class="btn btn-primary" id="start">Start</button>
+<button class="btn btn-primary" id="start">Začat!</button>
 <div class="dialog text-center" id="final-score-dialog" hidden>
     <div class="dialog-content">
-        <div class="dialog-header">
-            <div class="dialog-title">You Scored <span class="final-score">0</span></div>
-        </div>
         <div class="dialog-body">
-            <p><span class="you-win" hidden>Congratulations! You win!🎉</span></p>
-            <p><span class="you-lose" hidden>You lose! Have another try?😂</span></p>
+            <p><span class="you-win" hidden>You win!🎉</span></p>
+            <p><span class="you-lose" hidden>Prehral!</span></p>
         </div>
         <div class="dialog-footer">
             <button class="btn btn-primary" onclick="closeFinalScore()">
