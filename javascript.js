@@ -141,7 +141,7 @@ const listenDragEvent = () => {
             if (correspondingDroppable.isDroppable(draggableElement)) {
                 dropDown(draggable, correspondingDroppable);
                 score += SCOREINC;
-                scoreNumber.textContent = `${score}`;
+                // scoreNumber.textContent = `${score}`;
                 winGameJudge();
             } else {
                 moveBack(draggable);
