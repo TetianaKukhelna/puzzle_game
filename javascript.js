@@ -55,7 +55,7 @@ class Draggable {
 // const randomBlockWidths = randomIntArrayInRange(30, 60, 10);
 // const randomBlockBorderRadiuses = randomIntArrayInRange(1, 30, 10);
 let draggableBlocks = document.querySelectorAll(".block.draggable");
-let targetBlocks = document.querySelectorAll(".block.target");
+let targetBlocks = document.querySelectorAll(".block_abs.target");
 let startBtn = document.querySelector("#start");
 let demoBtn = document.querySelector("#demo");
 const scoreNumber = document.querySelector(".score-number");
@@ -72,7 +72,7 @@ let score = 0;
 let win = false;
 const SCOREINC = 10;
 const WINSCORE = SCOREINC * targetBlocks.length;
-const TIME = 60;
+const TIME = 6000;
 const INTERVAL = 600;
 let timer;
 let timeLeft = TIME;
@@ -124,6 +124,7 @@ const dropDown = (draggable, droppable) => {
     draggableEl.setAttribute("transparent", "");
     const droppableEl = droppable.droppableEl;
     droppableEl.classList.add("dropped");
+    droppableEl.firstChild.src = droppableEl.firstChild.src.replace("_siluet", "")
 };
 // Відстежуйте події перетягування
 const listenDragEvent = () => {
@@ -141,10 +142,13 @@ const listenDragEvent = () => {
             if (correspondingDroppable.isDroppable(draggableElement)) {
                 dropDown(draggable, correspondingDroppable);
                 score += SCOREINC;
+                console.log(score)
                 // scoreNumber.textContent = `${score}`;
                 winGameJudge();
+
             } else {
                 moveBack(draggable);
+                console.log("moveBack")
             }
         });
     });
