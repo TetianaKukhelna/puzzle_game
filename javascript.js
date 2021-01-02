@@ -220,7 +220,6 @@ const listenGameStart = () => {
     startBtn.addEventListener("click", () => {
         startBtn.setAttribute("transparent", "");
         startBtn.setAttribute("disabled", "");
-        listenDemo();
         startGame();
     });
 };
