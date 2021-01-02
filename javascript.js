@@ -57,9 +57,12 @@ class Draggable {
 let draggableBlocks = document.querySelectorAll(".block.draggable");
 let targetBlocks = document.querySelectorAll(".block.target");
 let startBtn = document.querySelector("#start");
+let demoBtn = document.querySelector("#demo");
 const scoreNumber = document.querySelector(".score-number");
 const timeLeftNumber = document.querySelector(".time-left-number");
 const finalScoreDialog = document.querySelector("#final-score-dialog");
+const DemoPic = document.querySelector("#demoPic");
+const deMo = document.querySelector(".listen_demo");
 // const finalScore = document.querySelector(".final-score");
 const youWin = document.querySelector(".you-win");
 const youLose = document.querySelector(".you-lose");
@@ -217,9 +220,21 @@ const listenGameStart = () => {
     startBtn.addEventListener("click", () => {
         startBtn.setAttribute("transparent", "");
         startBtn.setAttribute("disabled", "");
+        listenDemo();
         startGame();
     });
 };
+const True = true;
+
+    demoBtn.addEventListener("click", () => {
+        if(True){
+            draggableBlocks.setAttribute("hidden");
+            targetBlocks.setAttribute("hidden");
+            DemoPic.removeAttribute("hidden");
+            deMo.removeAttribute("hidden");
+        }
+    });
+
 const main = () => {
     // setRandomBlockSizes();
     disableBlocks();

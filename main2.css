@@ -250,3 +250,13 @@ body {
         opacity: 0;
     }
 }
+
+.cantered-horizontal {
+    display: flex;
+    justify-content: space-between!important;
+
+}
+
+.mb-10 {
+    margin: 0 10px;
+}
