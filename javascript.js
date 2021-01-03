@@ -232,9 +232,6 @@ const listenGameStart = () => {
 const listenDemo = () => {
 
     demoBtn.addEventListener("click", () => {
-        // document.getElementById(".game").none();
-
-        // document.head.style.display = "none";
         draggables.forEach((draggable) => {
             const draggableEl = draggable.draggableEl;
             draggableEl.setAttribute('style', 'display:none');
