@@ -1,4 +1,4 @@
-body {
+section.drag-and_drop-game {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,17 +16,13 @@ body {
     pointer-events: none !important;
 }
 
-.block_abs{
+section.drag-and_drop-game .block_abs{
     position: absolute;
 }
 
 
-.block {
+section.drag-and_drop-game .block {
     position: relative;
-    /*width: var(--width, 0);*/
-    /*height: var(--width, 0);*/
-    background: var(--block-bg);
-    border-radius: var(--border-radius, 0);
 }
 
 .block::after {
