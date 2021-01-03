@@ -51,6 +51,56 @@ body {
     z-index: -1;
 }
 
+.target-blocks_2 #one{
+    top: 0px;
+    left: 446px;
+}
+
+.target-blocks_2 #two{
+    top: 215px;
+    left: 490px;
+}
+
+.target-blocks_2 #three{
+    top: 251px;
+    left: 473px;
+}
+
+.target-blocks_2 #four{
+    top: 351px;
+    left: 517px;
+}
+
+.target-blocks_2 #five{
+    top: 240px;
+    left: 370px;
+}
+
+.target-blocks_2 #six{
+    top: 405px;
+    left: 414.49px;
+}
+
+.target-blocks_2 #seven{
+    top: 422px;
+    left: 577px;
+}
+
+.target-blocks_2 #eight{
+    top: 430px;
+    left: 490px;
+}
+
+.target-blocks_2 #nine{
+    top: 430px;
+    left: 540px;
+}
+
+.target-blocks_2 #ten{
+    top: 120px;
+    left: 400px;
+}
+
 .block.target:nth-child(1) {
     order: var(--order);
 }

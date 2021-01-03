@@ -54,6 +54,8 @@ class Draggable {
 
 let draggableBlocks = document.querySelectorAll(".block.draggable");
 let targetBlocks = document.querySelectorAll(".block_abs.target");
+const targetBlock = document.querySelector("#tar");
+let block_game = document.querySelectorAll(".game");
 let startBtn = document.querySelector("#start");
 let demoBtn = document.querySelector("#demo");
 const scoreNumber = document.querySelector(".score-number");
@@ -230,27 +232,33 @@ const listenGameStart = () => {
 const listenDemo = () => {
 
     demoBtn.addEventListener("click", () => {
+        // document.getElementById(".game").none();
+
+        // document.head.style.display = "none";
         draggables.forEach((draggable) => {
             const draggableEl = draggable.draggableEl;
-            draggableEl.setAttribute("transparent", "");
+            draggableEl.setAttribute('style', 'display:none');
         });
         droppables.forEach((droppable) => {
             const droppableEl = droppable.droppableEl;
-            droppableEl.setAttribute("transparent", "");
+            droppableEl.setAttribute('style', 'display:none');
         });
+        targetBlock.setAttribute('style', 'display:none');
         DemoPic.removeAttribute("hidden");
         deMo.removeAttribute("hidden");
+
         startBtn.addEventListener("click", () => {
             draggables.forEach((draggable) => {
                 const draggableEl = draggable.draggableEl;
-                draggableEl.removeAttribute("transparent", "");
+                draggableEl.removeAttribute('style', 'display:none');
             });
             droppables.forEach((droppable) => {
                 const droppableEl = droppable.droppableEl;
-                droppableEl.removeAttribute("transparent", "");
+                droppableEl.removeAttribute('style', 'display:none');
             });
-            DemoPic.setAttribute("hidden","");
-            deMo.setAttribute("hidden","");
+            targetBlock.removeAttribute('style', 'display:none');
+            DemoPic.setAttribute("hidden", "");
+            deMo.setAttribute("hidden", "");
             startGame();
         });
     });
