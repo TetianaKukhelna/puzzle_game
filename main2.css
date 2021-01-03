@@ -18,11 +18,7 @@ body {
 
 .block_abs{
     position: absolute;
-    /*width: 50px;*/
-    /*height: 50px;*/
-    /*background-color: #4facfe;*/
 }
-
 
 
 .block {
@@ -109,46 +105,6 @@ body {
     top: 120px;
     left: 100px;
 }
-
-/*.block.target:nth-child(1) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(2) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(3) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(4) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(5) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(6) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(7) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(8) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(9) {*/
-/*    order: var(--order);*/
-/*}*/
-
-/*.block.target:nth-child(10) {*/
-/*    order: var(--order);*/
-/*}*/
 
 
 .block.target.dropped::after {
