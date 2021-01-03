@@ -195,7 +195,7 @@ const endGame = () => {
     disableBlocks();
     showFinalScore();
     // startBtn.removeAttribute("transparent");
-    // startBtn.removeAttribute("disabled");
+    startBtn.disabled = false
 };
 // Якщо необхідний рахунок досягнуто (всі місця розміщення завершені), гра виграна
 const winGameJudge = () => {
@@ -223,7 +223,8 @@ const closeFinalScore = () => {
 const listenGameStart = () => {
     startBtn.addEventListener("click", () => {
         // startBtn.setAttribute("transparent", "");
-        // startBtn.setAttribute("disabled", "");
+        startBtn.disabled = true
+        console.log("Dis" + startBtn.disabled)
         startGame();
     });
 };

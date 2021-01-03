@@ -169,6 +169,7 @@ body {
 
 .draggable-blocks {
     display: flex;
+    flex-wrap: wrap;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 1fr);
     place-items: center;
@@ -184,6 +185,12 @@ body {
 
 #start {
     transition: 0.3s;
+}
+
+button#start:disabled,
+button#start[disabled] {
+    background-color: #5a6268;
+    border-color: #5a6268;
 }
 
 .statistics {
