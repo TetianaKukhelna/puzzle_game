@@ -130,6 +130,7 @@ body {
     grid-template-columns: repeat(5, 1fr);
     place-items: center;
     gap: 1rem;
+    padding: 0 40px;
 }
 
 
